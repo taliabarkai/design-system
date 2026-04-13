@@ -676,8 +676,8 @@
   --typography-paragraph4-line-height: 1.3125rem;
   --typography-paragraph4-font-weight: 300;
   --typography-button-font-family: "Akatab", system-ui, sans-serif;
-  --typography-button-font-size: 0.875rem;
-  --typography-button-line-height: 1.0625rem;
+  --typography-button-font-size: 1rem;
+  --typography-button-line-height: 1.125rem;
   --typography-button-font-weight: 600;
   --typography-button-letter-spacing: 0.04375rem;
   --typography-button-text-transform: uppercase;
