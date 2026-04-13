@@ -1,5 +1,34 @@
+/* Brand fonts — Big Caslon: system stack. Ano (MNN): add licensed .woff2 under public/fonts (see public/fonts/README.md); Outfit loads as fallback. */
+@import url('https://fonts.googleapis.com/css2?family=Akatab:wght@400;600;700&family=Assistant:ital,wght@0,300;0,400;0,600;0,700&family=Bebas+Neue&family=Lato:wght@300;400;700&family=Outfit:wght@400;500;600;700&family=Poppins:wght@400;600;700&display=swap');
+
+/* Ano: uses local() if installed; add optional url() in your build when hosting licensed .woff2 (see public/fonts/README.md). */
+@font-face {
+  font-family: 'Ano';
+  src: local('Ano Regular');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ano';
+  src: local('Ano Bold');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ano';
+  src: local('Ano Medium');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Generated tokens from tokens/ directory */
 @import './tokens.css';
+@import './typography-utilities.css';
 
 /* ============================================
    Reset & Base Styles
@@ -12,105 +41,25 @@
 }
 
 html {
+  height: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: var(--typography-text1-fontFamily, 'Helvetica Neue', sans-serif);
-  font-size: var(--typography-text1-fontSize, 1.4rem);
-  line-height: var(--typography-text1-lineHeight, 1.8rem);
+  min-height: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  font-family: var(--typography-text1-font-family, 'Helvetica Neue', sans-serif);
+  font-size: var(--typography-text1-font-size, 1.4rem);
+  line-height: var(--typography-text1-line-height, 1.8rem);
+  font-weight: var(--typography-text1-font-weight, 400);
+  letter-spacing: var(--typography-text1-letter-spacing, normal);
   color: var(--color-text, #000000);
   background-color: var(--color-secondary, #f8f8f8);
   transition: background-color var(--transitions-base), color var(--transitions-base);
-}
-
-/* ============================================
-   Typography Utility Classes
-   ============================================ */
-
-/* Headline 1 */
-.typography-headline1 {
-  font-family: var(--typography-headline1-fontFamily);
-  font-size: var(--typography-headline1-fontSize);
-  line-height: var(--typography-headline1-lineHeight);
-  letter-spacing: var(--typography-headline1-letterSpacing);
-  font-weight: var(--typography-headline1-fontWeight);
-  text-transform: var(--typography-headline1-textTransform, none);
-}
-
-/* Headline 2 */
-.typography-headline2 {
-  font-family: var(--typography-headline2-fontFamily);
-  font-size: var(--typography-headline2-fontSize);
-  line-height: var(--typography-headline2-lineHeight);
-  letter-spacing: var(--typography-headline2-letterSpacing);
-  font-weight: var(--typography-headline2-fontWeight);
-  text-transform: var(--typography-headline2-textTransform, none);
-}
-
-/* Headline 3 */
-.typography-headline3 {
-  font-family: var(--typography-headline3-fontFamily);
-  font-size: var(--typography-headline3-fontSize);
-  line-height: var(--typography-headline3-lineHeight);
-  letter-spacing: var(--typography-headline3-letterSpacing);
-  font-weight: var(--typography-headline3-fontWeight);
-  text-transform: var(--typography-headline3-textTransform, none);
-}
-
-/* Text 1 */
-.typography-text1 {
-  font-family: var(--typography-text1-fontFamily);
-  font-size: var(--typography-text1-fontSize);
-  line-height: var(--typography-text1-lineHeight);
-  letter-spacing: var(--typography-text1-letterSpacing);
-  font-weight: var(--typography-text1-fontWeight);
-}
-
-/* Text 2 */
-.typography-text2 {
-  font-family: var(--typography-text2-fontFamily);
-  font-size: var(--typography-text2-fontSize);
-  line-height: var(--typography-text2-lineHeight);
-  letter-spacing: var(--typography-text2-letterSpacing);
-  font-weight: var(--typography-text2-fontWeight);
-}
-
-/* Text 3 */
-.typography-text3 {
-  font-family: var(--typography-text3-fontFamily);
-  font-size: var(--typography-text3-fontSize);
-  line-height: var(--typography-text3-lineHeight);
-  letter-spacing: var(--typography-text3-letterSpacing);
-  font-weight: var(--typography-text3-fontWeight);
-}
-
-/* Body 1 */
-.typography-body1 {
-  font-family: var(--typography-body1-fontFamily);
-  font-size: var(--typography-body1-fontSize);
-  line-height: var(--typography-body1-lineHeight);
-  letter-spacing: var(--typography-body1-letterSpacing);
-  font-weight: var(--typography-body1-fontWeight);
-}
-
-/* Button 1 */
-.typography-button1 {
-  font-family: var(--typography-button1-fontFamily);
-  font-size: var(--typography-button1-fontSize);
-  line-height: var(--typography-button1-lineHeight);
-  letter-spacing: var(--typography-button1-letterSpacing);
-  font-weight: var(--typography-button1-fontWeight);
-  text-transform: var(--typography-button1-textTransform, none);
-}
-
-/* Caption 1 */
-.typography-caption1 {
-  font-family: var(--typography-caption1-fontFamily);
-  font-size: var(--typography-caption1-fontSize);
-  line-height: var(--typography-caption1-lineHeight);
-  font-weight: var(--typography-caption1-fontWeight);
 }
 
 /* ============================================
@@ -161,16 +110,4 @@ a:hover {
 
 .section {
   padding: var(--spacing-xl) 0;
-}
-
-/* ============================================
-   Theme Support
-   ============================================ */
-
-[data-theme='oak'] {
-  /* Oak theme is applied via CSS variables from tokens.css */
-}
-
-[data-theme='luna'] {
-  /* Luna theme is applied via CSS variables from tokens.css */
 }

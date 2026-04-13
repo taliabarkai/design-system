@@ -1,44 +1,90 @@
+/*
+ * Fills the viewport under body padding; flex + min-height:0 lets .pageScroll scroll internally.
+ * (Document-level scroll + huge type previews was stealing clicks from the brand bar.)
+ */
 .container {
-  min-height: 100vh;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.header {
+/* Title + brands + Typography/Colors — not in the scroll region, so it never shares a hit-test layer with the list. */
+.siteChrome {
+  flex-shrink: 0;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 2rem;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: var(--color-secondary);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.pageScroll {
+  flex: 1;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.headerInner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
   padding: 2rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: var(--color-secondary);
+}
+
+/* Work Sans for shell UI only; typography previews in main use brand tokens */
+.chromeUiFont {
+  font-family: var(--font-work-sans), 'Work Sans', system-ui, sans-serif;
+}
+
+.siteChrome .headerTitle {
+  font-family: var(--font-work-sans), 'Work Sans', system-ui, sans-serif;
+  font-size: 32px;
+  line-height: 32px;
 }
 
 .brandSelector {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 1rem;
+  width: 100%;
 }
 
 .brandButton {
   padding: 1rem;
-  border: 2px solid transparent;
-  background: white;
+  border: 1px solid transparent;
+  background: #fff;
   cursor: pointer;
   border-radius: 8px;
   text-align: left;
-  transition: all 200ms;
+  transition: border-color 200ms, background-color 200ms, color 200ms;
 }
 
 .brandButton:hover {
-  border-color: var(--color-accent);
-  background: var(--color-secondary);
+  border: 1px solid var(--color-primary);
+  background: #fff;
 }
 
 .brandButton.active {
-  border-color: var(--color-primary);
-  background: var(--color-accent);
-  color: white;
+  border: 1px solid #000;
+  background: #000;
+  color: #fff;
+}
+
+.brandButton.active .brandName,
+.brandButton.active .brandDesc {
+  color: #fff;
+}
+
+.brandButton.active .brandDesc {
+  opacity: 0.85;
 }
 
 .brandName {
@@ -55,7 +101,6 @@
   display: flex;
   gap: 2rem;
   padding: 1rem 2rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   background: var(--color-secondary);
 }
 
@@ -88,15 +133,165 @@
   margin-bottom: 4rem;
 }
 
-.section > h2 {
-  margin-top: 0;
+/* Section titles must not use brand .typography-headline* (those are display-scale). */
+.sectionTitle {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+  line-height: 1.35;
+  font-weight: 600;
+  color: var(--color-text, #111);
 }
 
-.typographyGrid {
+.typographyList {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.typographyListItem {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: minmax(8rem, 11rem) minmax(0, 1fr);
   gap: 1.5rem;
-  margin-top: 1.5rem;
+  align-items: start;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.typographyListItemWithCss {
+  grid-template-columns: minmax(8rem, 11rem) minmax(0, 1fr) minmax(16rem, 26rem);
+}
+
+.typographyPreviewCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.typographyListItem:last-child {
+  border-bottom: none;
+}
+
+.typographyRuleName {
+  font-family: monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.typographyCssCol {
+  min-width: 0;
+  align-self: start;
+}
+
+.typographyCssDetails {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.typographyCssSummary {
+  list-style: none;
+  cursor: pointer;
+  padding: 12px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text, #111);
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.typographyCssSummary::-webkit-details-marker {
+  display: none;
+}
+
+.typographyCssSummary::marker {
+  content: none;
+}
+
+/* L-shaped stroke: rotated -45° reads as chevron right; -135° reads as chevron up when open. */
+.typographyCssSummary::before {
+  content: '';
+  display: block;
+  flex-shrink: 0;
+  width: 0.375rem;
+  height: 0.375rem;
+  margin-top: 0.03rem;
+  border-style: solid;
+  border-width: 0 0.11rem 0.11rem 0;
+  border-color: currentColor;
+  opacity: 0.85;
+  transform: rotate(-45deg);
+  transform-origin: 55% 55%;
+  transition: transform 0.2s ease;
+}
+
+.typographyCssDetails[open] > .typographyCssSummary::before {
+  transform: rotate(-135deg);
+}
+
+.typographyCssPre {
+  margin: 0;
+  padding: 12px;
+  overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.typographyCssPre code {
+  display: block;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.typographyPxRef {
+  padding: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.typographyPxRefTitle {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.typographyPxRefLine {
+  margin: 0 0 0.35rem 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--color-text, #111);
+}
+
+.typographyPxRefLine:last-child {
+  margin-bottom: 0;
+}
+
+.typographyPxRefTag {
+  display: inline-block;
+  min-width: 4.5rem;
+  margin-right: 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  vertical-align: top;
+}
+
+.typographyPxRefTagWide {
+  min-width: 10.75rem;
 }
 
 .cardTitle {
@@ -174,6 +369,12 @@
   display: block;
 }
 
+.colorCodeBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
 .colorCode {
   font-family: monospace;
   font-size: 0.75rem;
@@ -181,6 +382,12 @@
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   word-break: break-all;
+}
+
+.colorHex {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
 }
 
 .spacingList {
@@ -206,6 +413,7 @@
 }
 
 .footer {
+  flex-shrink: 0;
   padding: 1.5rem;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -213,13 +421,16 @@
   margin-top: 2rem;
 }
 
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-  }
+.footerText {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: var(--font-work-sans), 'Work Sans', system-ui, sans-serif;
+}
 
+@media (max-width: 768px) {
   .brandSelector {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .nav {
@@ -229,5 +440,11 @@
 
   .componentDemo {
     flex-direction: column;
+  }
+
+  .typographyListItem,
+  .typographyListItemWithCss {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
   }
 }

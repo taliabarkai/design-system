@@ -1,197 +1,313 @@
 'use client';
 
 import { useState } from 'react';
-import { Heading, Text, Button, Card, CardHeader, CardBody, Input, Checkbox, Badge, Alert, AlertTitle, AlertDescription } from '@/components';
+import { Heading, Text } from '@/components';
 import styles from './page.module.css';
+import ibTokens from '../../tokens/ib.json';
+import lalTokens from '../../tokens/lal.json';
+import mnnTokens from '../../tokens/mnn.json';
+import oalTokens from '../../tokens/oal.json';
+import tgrTokens from '../../tokens/tgr.json';
 
-type Theme = 'oak' | 'luna' | 'lal' | 'ib' | 'tgr' | 'mnn';
+type Theme = 'oal' | 'lal' | 'ib' | 'tgr' | 'mnn';
 
-const brands = [
-  { value: 'oak', label: 'Oak', description: 'Refined & elegant' },
-  { value: 'luna', label: 'Luna', description: 'Modern & vibrant' },
-  { value: 'lal', label: 'LAL', description: 'Contemporary' },
-  { value: 'ib', label: 'IB', description: 'Premium & sophisticated' },
-  { value: 'tgr', label: 'TGR', description: 'Bold & energetic' },
-  { value: 'mnn', label: 'MNN', description: 'Modern & dynamic' },
+type TypographyRule = {
+  fontFamily: string;
+  fontSize: string;
+  lineHeight: string;
+  fontWeight?: string;
+  letterSpacing?: string;
+  fontSizeMobile?: string;
+  lineHeightMobile?: string;
+  letterSpacingMobile?: string;
+  textTransform?: string;
+  textDecoration?: string;
+  fontStyle?: string;
+};
+
+/** CSS block matching the `.typography-{variant}` utility for copy/reference. */
+function buildTypographyCssSnippet(variant: string, rule: TypographyRule): string {
+  const selector = `.typography-${variant}`;
+  const decls: string[] = [];
+  const add = (prop: string, val: string | undefined) => {
+    if (val != null && String(val).trim() !== '') decls.push(`  ${prop}: ${val};`);
+  };
+  add('font-family', rule.fontFamily);
+  add('font-size', rule.fontSize);
+  add('line-height', rule.lineHeight);
+  add('font-weight', rule.fontWeight);
+  add('letter-spacing', rule.letterSpacing);
+  add('text-transform', rule.textTransform);
+  add('text-decoration', rule.textDecoration);
+  add('font-style', rule.fontStyle);
+
+  let out = `${selector} {\n${decls.join('\n')}\n}`;
+
+  const mobile: string[] = [];
+  const addM = (prop: string, val: string | undefined) => {
+    if (val != null && String(val).trim() !== '') mobile.push(`    ${prop}: ${val};`);
+  };
+  addM('font-size', rule.fontSizeMobile);
+  addM('line-height', rule.lineHeightMobile);
+  addM('letter-spacing', rule.letterSpacingMobile);
+
+  if (mobile.length > 0) {
+    out += `\n\n@media (max-width: 768px) {\n  ${selector} {\n${mobile.join('\n')}\n  }\n}`;
+  }
+
+  return out;
+}
+
+/** Assumes 1rem = 16px (root default). Returns a px label or null if not a rem/px length. */
+function lengthToPxLabel(cssValue: string | undefined): string | null {
+  if (!cssValue?.trim()) return null;
+  const t = cssValue.trim();
+  const remM = t.match(/^(-?[\d.]+)\s*rem$/i);
+  if (remM) {
+    const px = Math.round(parseFloat(remM[1]) * 16 * 1000) / 1000;
+    return `${px}px`;
+  }
+  const pxM = t.match(/^(-?[\d.]+)\s*px$/i);
+  if (pxM) return `${pxM[1]}px`;
+  return null;
+}
+
+function letterSpacingPxPhrase(cssValue: string | undefined): string | null {
+  if (cssValue == null || cssValue.trim() === '') return null;
+  const t = cssValue.trim();
+  if (t === 'normal' || t === '0') return 'normal';
+  const px = lengthToPxLabel(t);
+  return px ?? t;
+}
+
+function pushPxBits(
+  bits: string[],
+  fontSize: string | undefined,
+  lineHeight: string | undefined,
+  letterSpacing: string | undefined,
+) {
+  const fs = lengthToPxLabel(fontSize);
+  if (fs) bits.push(`font-size ${fs}`);
+  const lh = lengthToPxLabel(lineHeight);
+  if (lh) bits.push(`line-height ${lh}`);
+  const ls = letterSpacingPxPhrase(letterSpacing);
+  if (ls) bits.push(`letter-spacing ${ls}`);
+}
+
+/** Designer-readable px line(s) under the CSS snippet. */
+function TypographyPxReference({ rule }: { rule: TypographyRule }) {
+  const desktopBits: string[] = [];
+  pushPxBits(desktopBits, rule.fontSize, rule.lineHeight, rule.letterSpacing);
+
+  /* Same fallbacks as generated CSS: mobile uses *-mobile tokens when set, else desktop. */
+  const mobileBits: string[] = [];
+  pushPxBits(
+    mobileBits,
+    rule.fontSizeMobile ?? rule.fontSize,
+    rule.lineHeightMobile ?? rule.lineHeight,
+    rule.letterSpacingMobile ?? rule.letterSpacing,
+  );
+
+  if (desktopBits.length === 0 && mobileBits.length === 0) return null;
+
+  const desktopStr = desktopBits.join(' · ');
+  const mobileStr = mobileBits.join(' · ');
+  const sameForBoth = desktopStr === mobileStr && desktopStr.length > 0;
+
+  return (
+    <div className={`${styles.typographyPxRef} ${styles.chromeUiFont}`}>
+      <p className={styles.typographyPxRefTitle}>Px reference (1rem = 16px)</p>
+      {sameForBoth ? (
+        <p className={styles.typographyPxRefLine}>
+          <span className={`${styles.typographyPxRefTag} ${styles.typographyPxRefTagWide}`}>
+            Mobile & Desktop
+          </span>
+          {desktopStr}
+        </p>
+      ) : (
+        <>
+          {desktopBits.length > 0 && (
+            <p className={styles.typographyPxRefLine}>
+              <span className={styles.typographyPxRefTag}>Desktop</span>
+              {desktopStr}
+            </p>
+          )}
+          {mobileBits.length > 0 && (
+            <p className={styles.typographyPxRefLine}>
+              <span className={styles.typographyPxRefTag}>Mobile</span>
+              {mobileStr}
+            </p>
+          )}
+        </>
+      )}
+    </div>
+  );
+}
+
+const THEME_TYPOGRAPHY: Record<Theme, Record<string, TypographyRule>> = {
+  oal: oalTokens.typography as Record<string, TypographyRule>,
+  lal: lalTokens.typography as Record<string, TypographyRule>,
+  ib: ibTokens.typography as Record<string, TypographyRule>,
+  tgr: tgrTokens.typography as Record<string, TypographyRule>,
+  mnn: mnnTokens.typography as Record<string, TypographyRule>,
+};
+
+const THEME_COLORS: Record<Theme, Record<string, string>> = {
+  oal: oalTokens.colors as Record<string, string>,
+  lal: lalTokens.colors as Record<string, string>,
+  ib: ibTokens.colors as Record<string, string>,
+  tgr: tgrTokens.colors as Record<string, string>,
+  mnn: mnnTokens.colors as Record<string, string>,
+};
+
+function typographyDisplayName(variant: string): string {
+  if (variant === 'button') return 'Button';
+  if (variant === 'links') return 'Links';
+  if (variant === 'ribbons') return 'Ribbons';
+  const match = variant.match(/^(headline|text|paragraph)(\d+)$/i);
+  if (match) {
+    const [, kind, num] = match;
+    const title =
+      kind!.toLowerCase() === 'headline'
+        ? 'Headline'
+        : kind!.toLowerCase() === 'text'
+          ? 'Text'
+          : 'Paragraph';
+    return `${title} ${num}`;
+  }
+  return variant;
+}
+
+const TYPOGRAPHY_PREVIEW = 'The quick brown fox jumps over the lazy dog';
+
+const TYPOGRAPHY_ROWS: { variant: string; label?: string }[] = [
+  ...Array.from({ length: 12 }, (_, i) => ({ variant: `headline${i + 1}` })),
+  { variant: 'text1', label: 'text1 (default)' },
+  { variant: 'text2', label: 'text2 (default bold)' },
+  { variant: 'text3', label: 'text3 (caption)' },
+  { variant: 'text4', label: 'text4 (caption bold)' },
+  { variant: 'text5' },
+  { variant: 'text6' },
+  { variant: 'text7' },
+  { variant: 'text8', label: 'text8 (disclaimer)' },
+  { variant: 'text9', label: 'text9 (disclaimer bold)' },
+  { variant: 'text10' },
+  { variant: 'text11' },
+  { variant: 'paragraph1' },
+  { variant: 'paragraph2' },
+  { variant: 'paragraph3' },
+  { variant: 'paragraph4' },
+  { variant: 'button' },
+  { variant: 'links' },
+  { variant: 'ribbons' },
 ];
 
+const brands = [
+  { value: 'oal', label: 'OAL', description: 'Oak & Luna' },
+  { value: 'lal', label: 'LAL', description: 'Lime & Lou' },
+  { value: 'ib', label: 'IB', description: 'Israel Blessing' },
+  { value: 'tgr', label: 'TGR', description: 'Theo Grace' },
+  { value: 'mnn', label: 'MNN', description: 'MYKA' },
+];
+
+function brandTypographyStylesTitle(theme: Theme): string {
+  const brand = brands.find((b) => b.value === theme);
+  if (!brand) return 'Typography styles';
+  const name = brand.description.replace(/\s*&\s*/g, ' and ');
+  return `${name} Typography styles`;
+}
+
 export default function DesignSystemPage() {
-  const [theme, setTheme] = useState<Theme>('oak');
+  const [theme, setTheme] = useState<Theme>('oal');
   const [activeTab, setActiveTab] = useState('typography');
 
   return (
     <div className={styles.container} data-theme={theme}>
-      {/* Header */}
-      <header className={styles.header}>
-        <div>
-          <Heading level={1}>Multi-Brand Design System</Heading>
-          <Text variant="body1">Complete design system for 6 brands: Oak, Luna, LAL, IB, TGR, MNN</Text>
+      {/* One sticky chrome block (title + brands + tabs) so main never stacks above it and steals clicks. */}
+      <header className={styles.siteChrome}>
+        <div className={styles.headerInner}>
+          <Heading level={1} className={styles.headerTitle}>
+            Tenengroup Sites Design System
+          </Heading>
+          <div className={`${styles.brandSelector} ${styles.chromeUiFont}`}>
+            {brands.map((brand) => (
+              <button
+                key={brand.value}
+                type="button"
+                onClick={() => setTheme(brand.value as Theme)}
+                className={`${styles.brandButton} ${theme === brand.value ? styles.active : ''}`}
+              >
+                <div className={styles.brandName}>{brand.label}</div>
+                <div className={styles.brandDesc}>{brand.description}</div>
+              </button>
+            ))}
+          </div>
         </div>
-
-        {/* Brand Selector */}
-        <div className={styles.brandSelector}>
-          {brands.map((brand) => (
+        <nav className={styles.nav} aria-label="Design system sections">
+          {['typography', 'colors'].map((tab) => (
             <button
-              key={brand.value}
-              onClick={() => setTheme(brand.value as Theme)}
-              className={`${styles.brandButton} ${theme === brand.value ? styles.active : ''}`}
+              key={tab}
+              type="button"
+              onClick={() => setActiveTab(tab)}
+              className={`${styles.navButton} ${activeTab === tab ? styles.navActive : ''}`}
             >
-              <div className={styles.brandName}>{brand.label}</div>
-              <div className={styles.brandDesc}>{brand.description}</div>
+              {tab.charAt(0).toUpperCase() + tab.slice(1)}
             </button>
           ))}
-        </div>
+        </nav>
       </header>
 
-      {/* Navigation */}
-      <nav className={styles.nav}>
-        {['typography', 'components', 'colors', 'spacing'].map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
-            className={`${styles.navButton} ${activeTab === tab ? styles.navActive : ''}`}
-          >
-            {tab.charAt(0).toUpperCase() + tab.slice(1)}
-          </button>
-        ))}
-      </nav>
-
-      {/* Main Content */}
+      {/* Scroll lives here only — chrome stays out of the scroll stack so brand tabs always receive clicks. */}
+      <div className={styles.pageScroll}>
       <main className={styles.main}>
         {/* Typography Section */}
         {activeTab === 'typography' && (
           <section className={styles.section}>
-            <Heading level={2}>Typography</Heading>
-            <Text variant="body1">All typography styles for {theme.toUpperCase()} brand</Text>
+            <h2 className={`${styles.sectionTitle} ${styles.chromeUiFont}`}>
+              {brandTypographyStylesTitle(theme)}
+            </h2>
 
-            <div className={styles.typographyGrid}>
-              {['headline1', 'headline2', 'headline3', 'text1', 'body1', 'caption1'].map((variant) => (
-                <Card key={variant} variant="outline" padding="md">
-                  <CardHeader>
-                    <h3 className={styles.cardTitle}>{variant}</h3>
-                  </CardHeader>
-                  <CardBody>
-                    <div className={`typography-${variant}`} style={{ marginBottom: '1rem' }}>
-                      Preview text in {variant}
+            <ul className={styles.typographyList}>
+              {TYPOGRAPHY_ROWS.map(({ variant, label }) => {
+                const rule = THEME_TYPOGRAPHY[theme][variant];
+                return (
+                  <li
+                    key={variant}
+                    className={`${styles.typographyListItem} ${rule ? styles.typographyListItemWithCss : ''}`}
+                  >
+                    <span className={styles.typographyRuleName}>
+                      {label ?? typographyDisplayName(variant)}
+                    </span>
+                    <div className={styles.typographyPreviewCol}>
+                      <div className={`typography-${variant}`}>{TYPOGRAPHY_PREVIEW}</div>
                     </div>
-                    <code className={styles.code}>.typography-{variant}</code>
-                  </CardBody>
-                </Card>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* Components Section */}
-        {activeTab === 'components' && (
-          <section className={styles.section}>
-            <Heading level={2}>Components</Heading>
-            <Text variant="body1">Interactive components from the design system</Text>
-
-            {/* Buttons */}
-            <div className={styles.componentGroup}>
-              <Heading level={3}>Buttons</Heading>
-              <div className={styles.componentDemo}>
-                <Button variant="primary">Primary Button</Button>
-                <Button variant="secondary">Secondary Button</Button>
-                <Button variant="outline">Outline Button</Button>
-                <Button variant="ghost">Ghost Button</Button>
-              </div>
-            </div>
-
-            {/* Badges */}
-            <div className={styles.componentGroup}>
-              <Heading level={3}>Badges</Heading>
-              <div className={styles.componentDemo}>
-                <Badge variant="primary">Primary</Badge>
-                <Badge variant="success">Success</Badge>
-                <Badge variant="warning">Warning</Badge>
-                <Badge variant="danger">Danger</Badge>
-                <Badge variant="info">Info</Badge>
-              </div>
-            </div>
-
-            {/* Alerts */}
-            <div className={styles.componentGroup}>
-              <Heading level={3}>Alerts</Heading>
-              <div className={styles.componentDemo}>
-                <Alert variant="info">
-                  <AlertTitle>Info Alert</AlertTitle>
-                  <AlertDescription>This is an informational message.</AlertDescription>
-                </Alert>
-                <Alert variant="success">
-                  <AlertTitle>Success Alert</AlertTitle>
-                  <AlertDescription>Operation completed successfully.</AlertDescription>
-                </Alert>
-                <Alert variant="warning">
-                  <AlertTitle>Warning Alert</AlertTitle>
-                  <AlertDescription>Please be careful with this action.</AlertDescription>
-                </Alert>
-                <Alert variant="danger">
-                  <AlertTitle>Danger Alert</AlertTitle>
-                  <AlertDescription>Something went wrong.</AlertDescription>
-                </Alert>
-              </div>
-            </div>
-
-            {/* Forms */}
-            <div className={styles.componentGroup}>
-              <Heading level={3}>Form Elements</Heading>
-              <div className={styles.formDemo}>
-                <Input
-                  label="Text Input"
-                  placeholder="Enter text"
-                  defaultValue="Sample input"
-                />
-                <Input
-                  label="Input with Error"
-                  placeholder="This has an error"
-                  error="This field is required"
-                />
-                <Checkbox label="Accept terms and conditions" defaultChecked />
-              </div>
-            </div>
-
-            {/* Cards */}
-            <div className={styles.componentGroup}>
-              <Heading level={3}>Cards</Heading>
-              <div className={styles.cardDemo}>
-                <Card variant="filled">
-                  <CardHeader>
-                    <h4>Card Title</h4>
-                  </CardHeader>
-                  <CardBody>
-                    <Text variant="body1">This is card content with a filled background.</Text>
-                  </CardBody>
-                </Card>
-
-                <Card variant="outline">
-                  <CardHeader>
-                    <h4>Card Title</h4>
-                  </CardHeader>
-                  <CardBody>
-                    <Text variant="body1">This is card content with an outline style.</Text>
-                  </CardBody>
-                </Card>
-
-                <Card variant="elevated">
-                  <CardHeader>
-                    <h4>Card Title</h4>
-                  </CardHeader>
-                  <CardBody>
-                    <Text variant="body1">This is card content with elevation and shadow.</Text>
-                  </CardBody>
-                </Card>
-              </div>
-            </div>
+                    {rule ? (
+                      <div className={styles.typographyCssCol}>
+                        <details className={styles.typographyCssDetails}>
+                          <summary
+                            className={`${styles.typographyCssSummary} ${styles.chromeUiFont}`}
+                          >
+                            CSS Typography Rules
+                          </summary>
+                          <pre className={styles.typographyCssPre}>
+                            <code>{buildTypographyCssSnippet(variant, rule)}</code>
+                          </pre>
+                          <TypographyPxReference rule={rule} />
+                        </details>
+                      </div>
+                    ) : null}
+                  </li>
+                );
+              })}
+            </ul>
           </section>
         )}
 
         {/* Colors Section */}
         {activeTab === 'colors' && (
           <section className={styles.section}>
-            <Heading level={2}>Color Palette</Heading>
-            <Text variant="body1">Theme colors for {theme.toUpperCase()}</Text>
+            <h2 className={`${styles.sectionTitle} ${styles.chromeUiFont}`}>Color Palette</h2>
+            <Text variant="paragraph1">Theme colors for {theme.toUpperCase()}</Text>
 
             <div className={styles.colorGrid}>
               {['primary', 'secondary', 'accent', 'success', 'warning', 'danger', 'info'].map((color) => (
@@ -200,50 +316,13 @@ export default function DesignSystemPage() {
                     className={styles.colorSwatch}
                     style={{ backgroundColor: `var(--color-${color})` }}
                   />
-                  <Text variant="caption1" className={styles.colorName}>
+                  <Text variant="text3" className={styles.colorName}>
                     <strong>{color}</strong>
                   </Text>
-                  <code className={styles.colorCode}>--color-{color}</code>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* Spacing Section */}
-        {activeTab === 'spacing' && (
-          <section className={styles.section}>
-            <Heading level={2}>Spacing Scale</Heading>
-            <Text variant="body1">Consistent spacing tokens used throughout the design system</Text>
-
-            <div className={styles.spacingList}>
-              {[
-                'xxxs',
-                'xxs',
-                'xs',
-                'sm',
-                'md',
-                'lg',
-                'xl',
-                'xxl',
-                'xxxl',
-                '4xl',
-                '5xl',
-              ].map((size) => (
-                <div key={size} className={styles.spacingItem}>
-                  <div className={styles.spacingVisual}>
-                    <div
-                      style={{
-                        width: `var(--spacing-${size})`,
-                        height: '24px',
-                        background: 'var(--color-accent)',
-                        borderRadius: 'var(--border-radius-md)',
-                      }}
-                    />
+                  <div className={styles.colorCodeBlock}>
+                    <code className={styles.colorCode}>--color-{color}</code>
+                    <span className={styles.colorHex}>{THEME_COLORS[theme][color]}</span>
                   </div>
-                  <Text variant="caption1" className={styles.spacingLabel}>
-                    <code>--spacing-{size}</code>
-                  </Text>
                 </div>
               ))}
             </div>
@@ -251,12 +330,10 @@ export default function DesignSystemPage() {
         )}
       </main>
 
-      {/* Footer */}
-      <footer className={styles.footer}>
-        <Text variant="caption1">
-          © 2024 Multi-Brand Design System. All brands supported: Oak, Luna, LAL, IB, TGR, MNN
-        </Text>
+      <footer className={`${styles.footer} ${styles.chromeUiFont}`}>
+        <p className={styles.footerText}>© 2026 Tenengroup Sites Design System</p>
       </footer>
+      </div>
     </div>
   );
 }

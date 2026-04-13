@@ -1,75 +1,212 @@
 {
   "theme": "ib",
-  "description": "IB brand - Premium and sophisticated",
+  "description": "IB (Israel Blessing) — premium and sophisticated",
   "typography": {
     "headline1": {
-      "fontFamily": "Helvetica Neue",
-      "fontSize": "2.9rem",
-      "lineHeight": "3.4rem",
-      "letterSpacing": "0.15rem",
-      "fontWeight": "700",
-      "textTransform": "uppercase"
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "3.75rem",
+      "lineHeight": "4.25rem",
+      "fontWeight": "600",
+      "fontSizeMobile": "2.125rem",
+      "lineHeightMobile": "2.5rem"
     },
     "headline2": {
-      "fontFamily": "Helvetica Neue",
-      "fontSize": "2.2rem",
-      "lineHeight": "2.8rem",
-      "letterSpacing": "0.08rem",
-      "fontWeight": "700",
-      "textTransform": "uppercase"
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "3.75rem",
+      "lineHeight": "4.25rem",
+      "fontWeight": "400",
+      "fontSizeMobile": "1.625rem",
+      "lineHeightMobile": "1.875rem"
     },
     "headline3": {
-      "fontFamily": "Helvetica Neue",
-      "fontSize": "2rem",
-      "lineHeight": "2.6rem",
-      "letterSpacing": "0.06rem",
-      "fontWeight": "700"
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "3.75rem",
+      "lineHeight": "4.25rem",
+      "fontWeight": "400",
+      "fontSizeMobile": "1.5rem",
+      "lineHeightMobile": "1.3125rem"
+    },
+    "headline4": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "1.25rem",
+      "lineHeight": "1.625rem",
+      "fontWeight": "400"
+    },
+    "headline5": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "1.25rem",
+      "lineHeight": "1.625rem",
+      "fontWeight": "300"
+    },
+    "headline6": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "1.375rem",
+      "lineHeight": "2rem",
+      "fontWeight": "600",
+      "letterSpacing": "0.0625rem",
+      "textTransform": "uppercase"
+    },
+    "headline7": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "0.875rem",
+      "lineHeight": "1.25rem",
+      "fontWeight": "600"
+    },
+    "headline8": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "0.875rem",
+      "lineHeight": "1.25rem",
+      "fontWeight": "600"
+    },
+    "headline9": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "1.25rem",
+      "lineHeight": "1.75rem",
+      "fontWeight": "600",
+      "fontSizeMobile": "1.625rem",
+      "lineHeightMobile": "1.3125rem"
+    },
+    "headline10": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "0.625rem",
+      "lineHeight": "1rem",
+      "fontWeight": "600",
+      "textTransform": "uppercase",
+      "fontSizeMobile": "0.875rem",
+      "lineHeightMobile": "1rem"
+    },
+    "headline11": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "1.25rem",
+      "lineHeight": "1.5rem",
+      "fontWeight": "400"
+    },
+    "headline12": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "1.25rem",
+      "lineHeight": "1.5rem",
+      "fontWeight": "400"
     },
     "text1": {
-      "fontFamily": "Helvetica Neue",
-      "fontSize": "1.4rem",
-      "lineHeight": "1.9rem",
-      "letterSpacing": "0.04rem",
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "1rem",
+      "lineHeight": "1.375rem",
       "fontWeight": "400"
     },
     "text2": {
-      "fontFamily": "Helvetica Neue",
-      "fontSize": "1.4rem",
-      "lineHeight": "1.9rem",
-      "letterSpacing": "0.04rem",
-      "fontWeight": "700"
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "1rem",
+      "lineHeight": "1.375rem",
+      "fontWeight": "600"
     },
     "text3": {
-      "fontFamily": "Helvetica Neue",
-      "fontSize": "1.2rem",
-      "lineHeight": "1.6rem",
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "0.75rem",
+      "lineHeight": "1rem",
       "fontWeight": "400"
     },
-    "body1": {
-      "fontFamily": "Helvetica Neue",
-      "fontSize": "1.5rem",
-      "lineHeight": "2rem",
-      "letterSpacing": "0.03rem",
+    "text4": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "0.8125rem",
+      "lineHeight": "1rem",
+      "fontWeight": "600"
+    },
+    "text5": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "0.875rem",
+      "lineHeight": "1rem",
       "fontWeight": "400"
     },
-    "button1": {
-      "fontFamily": "Helvetica Neue",
-      "fontSize": "1.3rem",
-      "lineHeight": "1.7rem",
-      "letterSpacing": "0.08rem",
+    "text6": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "0.875rem",
+      "lineHeight": "1.25rem",
+      "fontWeight": "600"
+    },
+    "text7": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "1rem",
+      "lineHeight": "1.375rem",
+      "fontWeight": "400"
+    },
+    "text8": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "1rem",
+      "lineHeight": "1.375rem",
+      "fontWeight": "400"
+    },
+    "text9": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "0.875rem",
+      "lineHeight": "0.9375rem",
+      "fontWeight": "600"
+    },
+    "text10": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "0.625rem",
+      "lineHeight": "0.9375rem",
+      "fontWeight": "400"
+    },
+    "text11": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "0.875rem",
+      "lineHeight": "1.375rem",
+      "fontWeight": "600"
+    },
+    "paragraph1": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "1rem",
+      "lineHeight": "1.5rem",
+      "fontWeight": "400",
+      "fontSizeMobile": "0.875rem",
+      "lineHeightMobile": "1.25rem"
+    },
+    "paragraph2": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "0.875rem",
+      "lineHeight": "1.5rem",
+      "fontWeight": "600",
+      "fontSizeMobile": "0.875rem",
+      "lineHeightMobile": "1rem"
+    },
+    "paragraph3": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "0.875rem",
+      "lineHeight": "1.5rem",
+      "fontWeight": "600"
+    },
+    "paragraph4": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "0.875rem",
+      "lineHeight": "1.5rem",
+      "fontWeight": "400"
+    },
+    "button": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "1rem",
+      "lineHeight": "1.5rem",
       "fontWeight": "700",
       "textTransform": "uppercase"
     },
-    "caption1": {
-      "fontFamily": "Helvetica Neue",
-      "fontSize": "1.1rem",
-      "lineHeight": "1.5rem",
-      "fontWeight": "400"
+    "links": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "1rem",
+      "lineHeight": "1.375rem",
+      "fontWeight": "500",
+      "textDecoration": "underline"
+    },
+    "ribbons": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "0.875rem",
+      "lineHeight": "1rem",
+      "fontWeight": "600",
+      "fontSizeMobile": "0.75rem",
+      "lineHeightMobile": "0.75rem"
     }
   },
   "colors": {
-    "primary": "#0a0a0a",
-    "secondary": "#fafafa",
+    "primary": "#000000",
+    "secondary": "#f5f5f5",
     "accent": "#b8860b",
     "success": "#2d9966",
     "warning": "#ff9800",

@@ -4,9 +4,18 @@ export type TextVariant =
   | 'text1'
   | 'text2'
   | 'text3'
-  | 'body1'
-  | 'button1'
-  | 'caption1';
+  | 'text4'
+  | 'text5'
+  | 'text6'
+  | 'text7'
+  | 'text8'
+  | 'text9'
+  | 'text10'
+  | 'text11'
+  | 'paragraph1'
+  | 'paragraph2'
+  | 'paragraph3'
+  | 'paragraph4';
 
 interface TextProps {
   variant?: TextVariant;
