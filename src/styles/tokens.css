@@ -555,11 +555,11 @@
   --typography-headline3-font-size-mobile: 3rem;
   --typography-headline3-line-height-mobile: 2.6875rem;
   --typography-headline4-font-family: "Bebas Neue", Impact, sans-serif;
-  --typography-headline4-font-size: 3rem;
-  --typography-headline4-line-height: 2.7rem;
+  --typography-headline4-font-size: 36px;
+  --typography-headline4-line-height: 90%;
   --typography-headline4-font-weight: 400;
-  --typography-headline4-font-size-mobile: 2.5rem;
-  --typography-headline4-line-height-mobile: 2.25rem;
+  --typography-headline4-font-size-mobile: 36px;
+  --typography-headline4-line-height-mobile: 90%;
   --typography-headline5-font-family: "Bebas Neue", Impact, sans-serif;
   --typography-headline5-font-size: 1.5rem;
   --typography-headline5-line-height: 1.35rem;
