@@ -108,6 +108,11 @@ a:hover {
   opacity: 0.8;
 }
 
+/* `.typography-links` utility (all brands): distance underline from glyph */
+.typography-links {
+  text-underline-offset: 4px;
+}
+
 /* ============================================
    Layout Utilities
    ============================================ */

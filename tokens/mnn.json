@@ -3,7 +3,7 @@
   "description": "MNN (MYKA) — modern and dynamic",
   "typography": {
     "headline1": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "2rem",
       "lineHeight": "2.375rem",
       "fontWeight": "400",
@@ -11,7 +11,7 @@
       "lineHeightMobile": "2rem"
     },
     "headline2": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "1.875rem",
       "lineHeight": "2.25rem",
       "fontWeight": "400",
@@ -19,7 +19,7 @@
       "lineHeightMobile": "1.875rem"
     },
     "headline3": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "1.875rem",
       "lineHeight": "2.25rem",
       "fontWeight": "400",
@@ -27,19 +27,19 @@
       "lineHeightMobile": "1.875rem"
     },
     "headline4": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "1.25rem",
       "lineHeight": "1.625rem",
       "fontWeight": "400"
     },
     "headline5": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "1.25rem",
       "lineHeight": "1.625rem",
       "fontWeight": "500"
     },
     "headline6": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "0.8125rem",
       "lineHeight": "1.125rem",
       "fontWeight": "700",
@@ -47,20 +47,20 @@
       "textTransform": "uppercase"
     },
     "headline7": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "0.875rem",
       "lineHeight": "1.25rem",
       "fontWeight": "400"
     },
     "headline8": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "0.875rem",
       "lineHeight": "1.25rem",
       "fontWeight": "400",
       "textTransform": "uppercase"
     },
     "headline9": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "1.25rem",
       "lineHeight": "1.75rem",
       "fontWeight": "400",
@@ -68,7 +68,7 @@
       "lineHeightMobile": "1.25rem"
     },
     "headline10": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "0.875rem",
       "lineHeight": "1.25rem",
       "fontWeight": "400",
@@ -76,43 +76,43 @@
       "lineHeightMobile": "1.125rem"
     },
     "headline11": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "1.25rem",
       "lineHeight": "1.625rem",
       "fontWeight": "400"
     },
     "headline12": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "1.25rem",
       "lineHeight": "1.625rem",
       "fontWeight": "400"
     },
     "text1": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "0.875rem",
       "lineHeight": "1.25rem",
       "fontWeight": "400"
     },
     "text2": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "0.875rem",
       "lineHeight": "1.25rem",
       "fontWeight": "700"
     },
     "text3": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "0.75rem",
       "lineHeight": "1.125rem",
       "fontWeight": "400"
     },
     "text4": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "0.75rem",
       "lineHeight": "1.125rem",
       "fontWeight": "700"
     },
     "text5": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "0.875rem",
       "lineHeight": "1.25rem",
       "fontWeight": "400",
@@ -120,43 +120,43 @@
       "lineHeightMobile": "1.125rem"
     },
     "text6": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "0.625rem",
       "lineHeight": "1.25rem",
       "fontWeight": "400"
     },
     "text7": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "0.75rem",
       "lineHeight": "1rem",
       "fontWeight": "500"
     },
     "text8": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "0.75rem",
       "lineHeight": "0.875rem",
       "fontWeight": "400"
     },
     "text9": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "0.625rem",
       "lineHeight": "0.875rem",
       "fontWeight": "700"
     },
     "text10": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "0.8125rem",
       "lineHeight": "0.75rem",
       "fontWeight": "400"
     },
     "text11": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "0.625rem",
       "lineHeight": "0.875rem",
       "fontWeight": "700"
     },
     "paragraph1": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "1rem",
       "lineHeight": "1.5rem",
       "fontWeight": "400",
@@ -164,7 +164,7 @@
       "lineHeightMobile": "1.25rem"
     },
     "paragraph2": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "1rem",
       "lineHeight": "1.5rem",
       "fontWeight": "700",
@@ -172,19 +172,19 @@
       "lineHeightMobile": "1.25rem"
     },
     "paragraph3": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "0.875rem",
       "lineHeight": "1.5rem",
       "fontWeight": "700"
     },
     "paragraph4": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "0.875rem",
       "lineHeight": "1.5rem",
       "fontWeight": "400"
     },
     "button": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "0.875rem",
       "lineHeight": "1.25rem",
       "fontWeight": "700",
@@ -192,14 +192,14 @@
       "textTransform": "uppercase"
     },
     "links": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "0.875rem",
       "lineHeight": "1.25rem",
       "fontWeight": "500",
       "textDecoration": "underline"
     },
     "ribbons": {
-      "fontFamily": "\"Ano\", \"Outfit\", system-ui, sans-serif",
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "0.875rem",
       "lineHeight": "0.875rem",
       "fontWeight": "400",
