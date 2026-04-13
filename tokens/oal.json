@@ -28,11 +28,11 @@
     },
     "headline4": {
       "fontFamily": "\"Bebas Neue\", Impact, sans-serif",
-      "fontSize": "3rem",
-      "lineHeight": "2.7rem",
+      "fontSize": "52px",
+      "lineHeight": "90%",
       "fontWeight": "400",
-      "fontSizeMobile": "2.5rem",
-      "lineHeightMobile": "2.25rem"
+      "fontSizeMobile": "44px",
+      "lineHeightMobile": "90%"
     },
     "headline5": {
       "fontFamily": "\"Bebas Neue\", Impact, sans-serif",
