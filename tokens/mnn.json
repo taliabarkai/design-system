@@ -143,16 +143,16 @@
       "lineHeight": "0.875rem",
       "fontWeight": "700"
     },
-    "text10": {
+    "caption1": {
       "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
-      "fontSize": "0.8125rem",
-      "lineHeight": "0.75rem",
+      "fontSize": "0.75rem",
+      "lineHeight": "1.125rem",
       "fontWeight": "400"
     },
-    "text11": {
+    "caption2": {
       "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
-      "fontSize": "0.625rem",
-      "lineHeight": "0.875rem",
+      "fontSize": "0.75rem",
+      "lineHeight": "1.125rem",
       "fontWeight": "700"
     },
     "disclaimer1": {

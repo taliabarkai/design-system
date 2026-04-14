@@ -137,13 +137,13 @@
       "lineHeight": "0.875rem",
       "fontWeight": "600"
     },
-    "text10": {
+    "caption1": {
       "fontFamily": "\"Poppins\", system-ui, sans-serif",
       "fontSize": "0.75rem",
       "lineHeight": "1rem",
       "fontWeight": "400"
     },
-    "text11": {
+    "caption2": {
       "fontFamily": "\"Poppins\", system-ui, sans-serif",
       "fontSize": "0.75rem",
       "lineHeight": "1rem",

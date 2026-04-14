@@ -141,16 +141,16 @@
       "lineHeight": "0.9375rem",
       "fontWeight": "600"
     },
-    "text10": {
+    "caption1": {
       "fontFamily": "\"Assistant\", system-ui, sans-serif",
-      "fontSize": "0.625rem",
-      "lineHeight": "0.9375rem",
+      "fontSize": "0.75rem",
+      "lineHeight": "1rem",
       "fontWeight": "400"
     },
-    "text11": {
+    "caption2": {
       "fontFamily": "\"Assistant\", system-ui, sans-serif",
-      "fontSize": "0.875rem",
-      "lineHeight": "1.375rem",
+      "fontSize": "0.8125rem",
+      "lineHeight": "1rem",
       "fontWeight": "600"
     },
     "disclaimer1": {

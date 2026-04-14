@@ -120,8 +120,6 @@ const brands = {
     text7: rule({ fontFamily: FF.lato, sizePx: 14, lhPx: 20, fontWeight: '300' }),
     text8: rule({ fontFamily: FF.lato, sizePx: 10, lhPx: 14, fontWeight: '400' }),
     text9: rule({ fontFamily: FF.lato, sizePx: 10, lhPx: 14, fontWeight: '700' }),
-    text10: rule({ fontFamily: FF.lato, sizePx: 12, lhPx: 14, fontWeight: '400' }),
-    text11: rule({ fontFamily: FF.lato, sizePx: 12, lhPx: 14, fontWeight: '700' }),
     paragraph1: rule({ fontFamily: FF.lato, sizePx: 18, lhPx: 22, fontWeight: '400' }),
     paragraph2: rule({ fontFamily: FF.lato, sizePx: 18, lhPx: 22, fontWeight: '700' }),
     paragraph3: rule({ fontFamily: FF.lato, sizePx: 16, lhPx: 22, fontWeight: '700' }),
@@ -271,19 +269,6 @@ const brands = {
       lhPx: 13,
       fontWeight: '400',
     }),
-    text10: rule({
-      fontFamily: FF.helveticaLight,
-      sizePx: 10,
-      lhPx: 12,
-      fontWeight: '300',
-      letterSpacing: 0.4,
-    }),
-    text11: rule({
-      fontFamily: FF.helveticaReg,
-      sizePx: 10,
-      lhPx: 12,
-      fontWeight: '400',
-    }),
     paragraph1: rule({
       fontFamily: FF.helveticaLight,
       sizePx: 20,
@@ -395,8 +380,6 @@ const brands = {
     text7: rule({ fontFamily: FF.poppins, sizePx: 14, lhPx: 18, fontWeight: '400' }),
     text8: rule({ fontFamily: FF.poppins, sizePx: 10, lhPx: 16, fontWeight: '400' }),
     text9: rule({ fontFamily: FF.poppins, sizePx: 10, lhPx: 14, fontWeight: '600' }),
-    text10: rule({ fontFamily: FF.poppins, sizePx: 12, lhPx: 16, fontWeight: '400' }),
-    text11: rule({ fontFamily: FF.poppins, sizePx: 12, lhPx: 16, fontWeight: '600' }),
     paragraph1: rule({
       fontFamily: FF.poppins,
       sizePx: 18,
@@ -517,8 +500,6 @@ const brands = {
     text7: rule({ fontFamily: FF.ano, sizePx: 12, lhPx: 16, fontWeight: '500' }),
     text8: rule({ fontFamily: FF.ano, sizePx: 12, lhPx: 14, fontWeight: '400' }),
     text9: rule({ fontFamily: FF.ano, sizePx: 10, lhPx: 14, fontWeight: '700' }),
-    text10: rule({ fontFamily: FF.ano, sizePx: 13, lhPx: 12, fontWeight: '400' }),
-    text11: rule({ fontFamily: FF.ano, sizePx: 10, lhPx: 14, fontWeight: '700' }),
     paragraph1: rule({
       fontFamily: FF.ano,
       sizePx: 16,
@@ -627,8 +608,6 @@ const brands = {
     text7: rule({ fontFamily: FF.assistant, sizePx: 16, lhPx: 22, fontWeight: '400' }),
     text8: rule({ fontFamily: FF.assistant, sizePx: 16, lhPx: 22, fontWeight: '400' }),
     text9: rule({ fontFamily: FF.assistant, sizePx: 14, lhPx: 15, fontWeight: '600' }),
-    text10: rule({ fontFamily: FF.assistant, sizePx: 10, lhPx: 15, fontWeight: '400' }),
-    text11: rule({ fontFamily: FF.assistant, sizePx: 14, lhPx: 22, fontWeight: '600' }),
     paragraph1: rule({
       fontFamily: FF.assistant,
       sizePx: 16,

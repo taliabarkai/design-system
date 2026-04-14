@@ -153,17 +153,17 @@
       "lineHeight": "0.8125rem",
       "fontWeight": "400"
     },
-    "text10": {
+    "caption1": {
       "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
-      "fontSize": "0.625rem",
-      "lineHeight": "0.75rem",
+      "fontSize": "0.75rem",
+      "lineHeight": "1rem",
       "fontWeight": "300",
       "letterSpacing": "0.025rem"
     },
-    "text11": {
+    "caption2": {
       "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
-      "fontSize": "0.625rem",
-      "lineHeight": "0.75rem",
+      "fontSize": "0.75rem",
+      "lineHeight": "1rem",
       "fontWeight": "400"
     },
     "disclaimer1": {
