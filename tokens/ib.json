@@ -153,6 +153,18 @@
       "lineHeight": "1.375rem",
       "fontWeight": "600"
     },
+    "disclaimer1": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "1rem",
+      "lineHeight": "1.375rem",
+      "fontWeight": "400"
+    },
+    "disclaimer2": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "0.875rem",
+      "lineHeight": "0.9375rem",
+      "fontWeight": "600"
+    },
     "paragraph1": {
       "fontFamily": "\"Assistant\", system-ui, sans-serif",
       "fontSize": "1rem",
@@ -187,6 +199,12 @@
       "lineHeight": "1.5rem",
       "fontWeight": "700",
       "textTransform": "uppercase"
+    },
+    "button2": {
+      "fontFamily": "\"Assistant\", system-ui, sans-serif",
+      "fontSize": "1rem",
+      "lineHeight": "1.375rem",
+      "fontWeight": "400"
     },
     "links": {
       "fontFamily": "\"Assistant\", system-ui, sans-serif",

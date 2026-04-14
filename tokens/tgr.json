@@ -149,6 +149,18 @@
       "lineHeight": "0.875rem",
       "fontWeight": "700"
     },
+    "disclaimer1": {
+      "fontFamily": "\"Lato\", system-ui, sans-serif",
+      "fontSize": "0.625rem",
+      "lineHeight": "0.875rem",
+      "fontWeight": "400"
+    },
+    "disclaimer2": {
+      "fontFamily": "\"Lato\", system-ui, sans-serif",
+      "fontSize": "0.625rem",
+      "lineHeight": "0.875rem",
+      "fontWeight": "700"
+    },
     "paragraph1": {
       "fontFamily": "\"Lato\", system-ui, sans-serif",
       "fontSize": "1.125rem",
@@ -178,6 +190,12 @@
       "fontSize": "1rem",
       "lineHeight": "1.5rem",
       "fontWeight": "700"
+    },
+    "button2": {
+      "fontFamily": "\"Lato\", system-ui, sans-serif",
+      "fontSize": "0.875rem",
+      "lineHeight": "1.25rem",
+      "fontWeight": "400"
     },
     "links": {
       "fontFamily": "\"Lato\", system-ui, sans-serif",

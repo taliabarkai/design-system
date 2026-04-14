@@ -26,6 +26,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={workSans.variable}>
+      <head>
+        <link rel="stylesheet" href="https://use.typekit.net/vle4ewv.css" />
+      </head>
       <body>{children}</body>
     </html>
   );

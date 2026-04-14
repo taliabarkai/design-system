@@ -149,6 +149,18 @@
       "lineHeight": "1rem",
       "fontWeight": "600"
     },
+    "disclaimer1": {
+      "fontFamily": "\"Poppins\", system-ui, sans-serif",
+      "fontSize": "0.625rem",
+      "lineHeight": "1rem",
+      "fontWeight": "400"
+    },
+    "disclaimer2": {
+      "fontFamily": "\"Poppins\", system-ui, sans-serif",
+      "fontSize": "0.625rem",
+      "lineHeight": "0.875rem",
+      "fontWeight": "600"
+    },
     "paragraph1": {
       "fontFamily": "\"Poppins\", system-ui, sans-serif",
       "fontSize": "1.125rem",
@@ -183,6 +195,12 @@
       "lineHeight": "1.125rem",
       "fontWeight": "600",
       "textTransform": "uppercase"
+    },
+    "button2": {
+      "fontFamily": "\"Poppins\", system-ui, sans-serif",
+      "fontSize": "0.875rem",
+      "lineHeight": "1.125rem",
+      "fontWeight": "400"
     },
     "links": {
       "fontFamily": "\"Poppins\", system-ui, sans-serif",

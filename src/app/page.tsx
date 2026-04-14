@@ -25,6 +25,19 @@ type TypographyRule = {
   fontStyle?: string;
 };
 
+/** Snippet-only: convert `NNpx` → rem (1rem = 16px). Rem, %, and other units unchanged. */
+function cssLengthPxToRemForSnippet(val: string | undefined): string | undefined {
+  if (val == null || val.trim() === '') return undefined;
+  const t = val.trim();
+  const m = t.match(/^(-?[\d.]+)\s*px$/i);
+  if (!m) return t;
+  const px = parseFloat(m[1]);
+  if (Number.isNaN(px)) return t;
+  const rem = Math.round((px / 16) * 1e6) / 1e6;
+  const formatted = String(rem).replace(/(\.\d*?)0+$/, '$1').replace(/\.$/, '');
+  return `${formatted}rem`;
+}
+
 /** CSS block matching the `.typography-{variant}` utility for copy/reference. */
 function buildTypographyCssSnippet(variant: string, rule: TypographyRule): string {
   const selector = `.typography-${variant}`;
@@ -33,10 +46,10 @@ function buildTypographyCssSnippet(variant: string, rule: TypographyRule): strin
     if (val != null && String(val).trim() !== '') decls.push(`  ${prop}: ${val};`);
   };
   add('font-family', rule.fontFamily);
-  add('font-size', rule.fontSize);
-  add('line-height', rule.lineHeight);
+  add('font-size', cssLengthPxToRemForSnippet(rule.fontSize));
+  add('line-height', cssLengthPxToRemForSnippet(rule.lineHeight));
   add('font-weight', rule.fontWeight);
-  add('letter-spacing', rule.letterSpacing);
+  add('letter-spacing', cssLengthPxToRemForSnippet(rule.letterSpacing));
   add('text-transform', rule.textTransform);
   add('text-decoration', rule.textDecoration);
   add('font-style', rule.fontStyle);
@@ -47,9 +60,9 @@ function buildTypographyCssSnippet(variant: string, rule: TypographyRule): strin
   const addM = (prop: string, val: string | undefined) => {
     if (val != null && String(val).trim() !== '') mobile.push(`    ${prop}: ${val};`);
   };
-  addM('font-size', rule.fontSizeMobile);
-  addM('line-height', rule.lineHeightMobile);
-  addM('letter-spacing', rule.letterSpacingMobile);
+  addM('font-size', cssLengthPxToRemForSnippet(rule.fontSizeMobile));
+  addM('line-height', cssLengthPxToRemForSnippet(rule.lineHeightMobile));
+  addM('letter-spacing', cssLengthPxToRemForSnippet(rule.letterSpacingMobile));
 
   if (mobile.length > 0) {
     out += `\n\n@media (max-width: 768px) {\n  ${selector} {\n${mobile.join('\n')}\n  }\n}`;
@@ -153,7 +166,6 @@ const THEME_TYPOGRAPHY: Record<Theme, Record<string, TypographyRule>> = {
 };
 
 function typographyDisplayName(variant: string): string {
-  if (variant === 'button') return 'Button';
   if (variant === 'links') return 'Links';
   if (variant === 'ribbons') return 'Ribbons';
   const match = variant.match(/^(headline|text|paragraph)(\d+)$/i);
@@ -174,6 +186,7 @@ const TYPOGRAPHY_PREVIEW = 'The quick brown fox jumps over the lazy dog';
 
 function typographyPreviewText(variant: string): string {
   if (variant === 'button') return 'ADD TO BAG';
+  if (variant === 'button2') return 'Add To Bag';
   if (variant === 'links') return 'Continue Shopping';
   if (variant === 'ribbons') return '20% OFF';
   return TYPOGRAPHY_PREVIEW;
@@ -181,22 +194,25 @@ function typographyPreviewText(variant: string): string {
 
 const TYPOGRAPHY_ROWS: { variant: string; label?: string }[] = [
   ...Array.from({ length: 12 }, (_, i) => ({ variant: `headline${i + 1}` })),
-  { variant: 'text1', label: 'text1 (default)' },
-  { variant: 'text2', label: 'text2 (default bold)' },
-  { variant: 'text3', label: 'text3 (caption)' },
-  { variant: 'text4', label: 'text4 (caption bold)' },
+  { variant: 'text1', label: 'Text 1' },
+  { variant: 'text2', label: 'Text 2' },
+  { variant: 'text3', label: 'Text 3' },
+  { variant: 'text4', label: 'Text 4' },
   { variant: 'text5' },
   { variant: 'text6' },
   { variant: 'text7' },
-  { variant: 'text8', label: 'text8 (disclaimer)' },
-  { variant: 'text9', label: 'text9 (disclaimer bold)' },
+  { variant: 'text8', label: 'text 8' },
+  { variant: 'text9', label: 'Text 9' },
   { variant: 'text10' },
   { variant: 'text11' },
+  { variant: 'disclaimer1', label: 'Disclaimer 1' },
+  { variant: 'disclaimer2', label: 'Disclaimer 2' },
   { variant: 'paragraph1' },
   { variant: 'paragraph2' },
   { variant: 'paragraph3' },
   { variant: 'paragraph4' },
-  { variant: 'button' },
+  { variant: 'button', label: 'Button 1' },
+  { variant: 'button2', label: 'Button 2' },
   { variant: 'links' },
   { variant: 'ribbons' },
 ];

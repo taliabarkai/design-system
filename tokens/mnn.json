@@ -155,6 +155,18 @@
       "lineHeight": "0.875rem",
       "fontWeight": "700"
     },
+    "disclaimer1": {
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
+      "fontSize": "0.75rem",
+      "lineHeight": "0.875rem",
+      "fontWeight": "400"
+    },
+    "disclaimer2": {
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
+      "fontSize": "0.625rem",
+      "lineHeight": "0.875rem",
+      "fontWeight": "700"
+    },
     "paragraph1": {
       "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
       "fontSize": "1rem",
@@ -190,6 +202,12 @@
       "fontWeight": "700",
       "letterSpacing": "0.3125rem",
       "textTransform": "uppercase"
+    },
+    "button2": {
+      "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",
+      "fontSize": "0.875rem",
+      "lineHeight": "1.25rem",
+      "fontWeight": "400"
     },
     "links": {
       "fontFamily": "\"Ano MYKA\", \"Outfit\", system-ui, sans-serif",

@@ -12,27 +12,27 @@
     },
     "headline2": {
       "fontFamily": "\"Bebas Neue\", Impact, sans-serif",
-      "fontSize": "5rem",
-      "lineHeight": "4.5rem",
+      "fontSize": "60px",
+      "lineHeight": "3.375rem",
       "fontWeight": "400",
-      "fontSizeMobile": "3rem",
-      "lineHeightMobile": "2.6875rem"
+      "fontSizeMobile": "36px",
+      "lineHeightMobile": "2.025rem"
     },
     "headline3": {
       "fontFamily": "\"Bebas Neue\", Impact, sans-serif",
-      "fontSize": "5rem",
-      "lineHeight": "4.5rem",
+      "fontSize": "48px",
+      "lineHeight": "2.7rem",
       "fontWeight": "400",
-      "fontSizeMobile": "3rem",
-      "lineHeightMobile": "2.6875rem"
+      "fontSizeMobile": "32px",
+      "lineHeightMobile": "1.8rem"
     },
     "headline4": {
       "fontFamily": "\"Bebas Neue\", Impact, sans-serif",
       "fontSize": "36px",
-      "lineHeight": "90%",
+      "lineHeight": "2.025rem",
       "fontWeight": "400",
       "fontSizeMobile": "36px",
-      "lineHeightMobile": "90%"
+      "lineHeightMobile": "2.025rem"
     },
     "headline5": {
       "fontFamily": "\"Bebas Neue\", Impact, sans-serif",
@@ -166,6 +166,19 @@
       "lineHeight": "0.75rem",
       "fontWeight": "400"
     },
+    "disclaimer1": {
+      "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "0.625rem",
+      "lineHeight": "0.8125rem",
+      "fontWeight": "300",
+      "letterSpacing": "0.025rem"
+    },
+    "disclaimer2": {
+      "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "0.625rem",
+      "lineHeight": "0.8125rem",
+      "fontWeight": "400"
+    },
     "paragraph1": {
       "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
       "fontSize": "1.25rem",
@@ -203,11 +216,18 @@
       "letterSpacing": "0.04375rem",
       "textTransform": "uppercase"
     },
+    "button2": {
+      "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "0.875rem",
+      "lineHeight": "1.125rem",
+      "fontWeight": "300",
+      "letterSpacing": "0.025rem"
+    },
     "links": {
       "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
       "fontSize": "0.875rem",
       "lineHeight": "1.125rem",
-      "fontWeight": "500",
+      "fontWeight": "400",
       "textDecoration": "underline"
     },
     "ribbons": {
