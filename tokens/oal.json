@@ -12,19 +12,19 @@
     },
     "headline2": {
       "fontFamily": "\"Bebas Neue\", sans-serif",
-      "fontSize": "60px",
-      "lineHeight": "3.375rem",
+      "fontSize": "72px",
+      "lineHeight": "4.05rem",
       "fontWeight": "400",
-      "fontSizeMobile": "36px",
-      "lineHeightMobile": "2.025rem"
+      "fontSizeMobile": "40px",
+      "lineHeightMobile": "2.25rem"
     },
     "headline3": {
       "fontFamily": "\"Bebas Neue\", sans-serif",
-      "fontSize": "48px",
-      "lineHeight": "2.7rem",
+      "fontSize": "72px",
+      "lineHeight": "4.05rem",
       "fontWeight": "400",
-      "fontSizeMobile": "32px",
-      "lineHeightMobile": "1.8rem"
+      "fontSizeMobile": "40px",
+      "lineHeightMobile": "2.25rem"
     },
     "headline4": {
       "fontFamily": "\"Bebas Neue\", sans-serif",
